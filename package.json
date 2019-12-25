@@ -1,0 +1,22 @@
+{
+  "name": "sqratchxchange",
+  "version": "1.0.0",
+  "description": "Landing page and gallery page for sqratchxchange",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "author": "Daryll Osis",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.3.0",
+    "mongoose": "^5.8.3",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "nodemon": "^2.0.2"
+  }
+}
