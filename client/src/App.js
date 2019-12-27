@@ -1,13 +1,15 @@
 import React, { Fragment } from 'react';
 
 import Navbar from './components/layout/Navbar';
+import Home from './components/pages/Home';
 
-import './App.css';
+// import the sass styling
+import './styles/main.scss';
 
 const App = () => (
   <Fragment>
-    <h1>app</h1>
     <Navbar />
+    <Home />
   </Fragment>
 );
 

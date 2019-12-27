@@ -1,0 +1,40 @@
+.header {
+  height: 100vh;
+  background-image: linear-gradient(
+      to bottom,
+      rgba($color-black, 0.4),
+      rgba($color-black, 0.4)
+    ),
+    url('../../img/header-image_large.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    &--text1 {
+      color: white;
+      font-size: 7rem;
+      text-transform: capitalize;
+    }
+
+    &--text2 {
+      color: white;
+      font-size: 3rem;
+      text-transform: capitalize;
+    }
+
+    &--btn {
+      padding: 1rem;
+      color: white;
+      background-color: transparent;
+      font-size: 1.5rem;
+      border: 2px solid white;
+    }
+  }
+}
