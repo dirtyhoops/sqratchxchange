@@ -7,6 +7,20 @@ body {
   color: $color-black;
 }
 
+.heading-primary {
+  color: $color-black;
+  font-size: 3.5rem;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+}
+
+.text {
+  &--about {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+}
+
 // //have 2 types with 2 different font color
 // .heading-tertiary {
 //   color: $color-black;

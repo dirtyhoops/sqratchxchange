@@ -13,6 +13,12 @@
   transform: translate(-50%, -50%);
 }
 
+@mixin centerVertical {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
 // MEDIA QUERY MANAGER
 /*
 0 - 450px       Small Phone
