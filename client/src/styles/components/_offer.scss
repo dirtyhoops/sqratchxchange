@@ -1,0 +1,9 @@
+.offer {
+  &__topshape {
+    width: 100%;
+    height: 10rem;
+    background-color: white;
+    // -webkit-clip-path: ellipse(110% 52% at 50% 45%);
+    clip-path: ellipse(55% 100% at 50% 0%);
+  }
+}

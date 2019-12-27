@@ -1,0 +1,73 @@
+.about {
+  // background-color: yellow;
+  &__container {
+    display: flex;
+
+    &--left {
+      width: 45%;
+      // background-color: yellow;
+      height: 40rem;
+      position: relative;
+    }
+
+    &--right {
+      width: 55%;
+      // background-color: green;
+      height: 40rem;
+      text-align: left;
+
+      //change this later, make sure that the texts are centered vertically. maybe make a container for all the texts inside the right container and center it.
+      padding-top: 8rem;
+    }
+  }
+
+  &__images {
+    height: 30rem;
+    width: 30rem;
+    margin: 0 auto;
+    background-image: url('../../img/sx_about1.jpg');
+    background-size: cover;
+    background-position: top;
+
+    -webkit-clip-path: circle(60% at 50% 10%);
+    clip-path: circle(50% at 50% 50%);
+
+    @include absCenter;
+  }
+
+  &__images1 {
+    height: 14rem;
+    width: 14rem;
+    @include absCenter;
+    background-image: url('../../img/sx_about1.jpg');
+    background-size: cover;
+    background-position: center;
+
+    -webkit-clip-path: circle(60% at 50% 10%);
+    clip-path: circle(50% at 50% 50%);
+  }
+
+  &__images__border {
+    height: 14.5rem;
+    width: 14.5rem;
+    margin: 0 auto;
+    background: white;
+    position: absolute;
+    left: 60%;
+    top: 10%;
+
+    -webkit-clip-path: circle(60% at 50% 10%);
+    clip-path: circle(50% at 50% 50%);
+  }
+
+  &__text {
+    &--heading {
+      font-size: 3.5rem;
+    }
+
+    &--sub {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -9,6 +9,11 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  -webkit-clip-path: ellipse(110% 52% at 50% 45%);
+  clip-path: ellipse(110% 52% at 50% 45%);
+
+  // -webkit-clip-path: circle(60% at 50% 10%);
+  // clip-path: circle(50.0% at 50% 50%);
 
   &__content {
     position: absolute;
