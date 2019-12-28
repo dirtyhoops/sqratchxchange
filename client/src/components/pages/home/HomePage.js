@@ -3,6 +3,8 @@ import HeaderImage from '../../layout/HeaderImage';
 import About from './About';
 import Offer from './Offer';
 
+// Add FRAGMENT later and remove the opening DIV
+
 const Home = () => {
   return (
     <div>

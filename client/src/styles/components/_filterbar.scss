@@ -1,0 +1,17 @@
+.filterbar {
+  width: 100%;
+  padding: 1.2rem 0;
+  background-color: yellow;
+
+  &__ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+
+    li {
+      font-size: 1.5rem;
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+  }
+}
