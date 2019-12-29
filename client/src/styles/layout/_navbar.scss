@@ -65,17 +65,8 @@ nav.black {
       }
     }
 
-    &--left {
-      width: 35%;
-      text-align: left;
-
-      @include respond(phone) {
-        width: 100%;
-      }
-    }
-
     &--right {
-      width: 35%;
+      width: 75%;
       text-align: right;
 
       @include respond(phone) {
