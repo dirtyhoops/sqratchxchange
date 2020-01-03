@@ -10,9 +10,9 @@ const GalleryGrid = () => {
       <div className='row'>
         <div className='col'>
           <div className='gallerygrid__items'>
-            {/* <div className='gallerygrid__items__description'>
-              <h1 className='baby'>GUCCI MANEEEEEEEEEE</h1>
-            </div> */}
+            <div className='gallerygrid__items__description'>
+              <h1>GUCCI MANEEEEEEEEEE</h1>
+            </div>
             <img className='gallerygrid__items__image' src={item1} />
           </div>
         </div>
