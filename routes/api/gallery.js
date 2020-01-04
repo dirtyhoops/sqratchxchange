@@ -31,9 +31,6 @@ router.post(
       .isEmpty(),
     check('image', 'Image link is required')
       .not()
-      .isEmpty(),
-    check('orientation', 'Orientation is required')
-      .not()
       .isEmpty()
   ],
   async (req, res) => {

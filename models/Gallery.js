@@ -12,10 +12,6 @@ const GallerySchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  orientation: {
-    type: String,
-    required: true
-  },
   dateAdded: {
     type: Date,
     default: Date.now
