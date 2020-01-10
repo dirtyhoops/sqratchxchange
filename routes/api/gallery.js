@@ -29,6 +29,9 @@ router.post(
     check('description', 'Description is required')
       .not()
       .isEmpty(),
+    check('type', 'Type is required')
+      .not()
+      .isEmpty(),
     check('image', 'Image link is required')
       .not()
       .isEmpty()
@@ -43,6 +46,7 @@ router.post(
       const newItem = new Gallery({
         name: req.body.name,
         description: req.body.description,
+        type: req.body.type,
         image: req.body.image,
         orientation: req.body.orientation
       });

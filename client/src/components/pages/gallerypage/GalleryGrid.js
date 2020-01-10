@@ -5,7 +5,7 @@ const GalleryGrid = ({ items }) => {
     <div className='gallerygrid container'>
       <div className='row'>
         {items.map(item => (
-          <div className='col'>
+          <div key={item._id} className='col'>
             <div className='gallerygrid__items'>
               <div className='gallerygrid__items__description'>
                 <h1>{item.name}</h1>
