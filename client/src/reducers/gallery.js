@@ -1,4 +1,4 @@
-import { GET_ITEMS } from '../actions/types';
+import { GET_ITEMS, GET_ITEM } from '../actions/types';
 
 const initialState = {
   selectedItem: null,
@@ -15,6 +15,11 @@ export default function(state = initialState, action) {
         ...state,
         items: payload,
         loadingItems: false
+      };
+    case GET_ITEM:
+      return {
+        ...state,
+        selectedItem: payload
       };
 
     default:

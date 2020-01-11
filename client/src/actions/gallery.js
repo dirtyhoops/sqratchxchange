@@ -1,4 +1,4 @@
-import { GET_ITEMS } from './types';
+import { GET_ITEMS, GET_ITEM } from './types';
 
 import axios from 'axios';
 
@@ -31,5 +31,18 @@ export const filterItems = type => async dispatch => {
   } catch (err) {
     // Change this to dispatch something
     console.log('error getting items');
+  }
+};
+
+export const getItem = id => async dispatch => {
+  try {
+    const res = await axios.get(`/api/gallery/${id}`);
+
+    dispatch({
+      type: GET_ITEM,
+      payload: res.data
+    });
+  } catch (err) {
+    console.log('error getting shoes, make a ITEM ERROR DISPATCH LATER');
   }
 };

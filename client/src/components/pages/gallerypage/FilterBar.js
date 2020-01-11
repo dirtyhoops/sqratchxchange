@@ -2,16 +2,16 @@ import React from 'react';
 
 const FilterBar = props => {
   // @ Todo
-  // 1. have a const array with the LI values and then just map it with the li
+  // 1. change the filters make it plural with S. maybe make the type plural when adding items
 
   const filters = [
     'shirt',
-    'jackets',
+    'jacket',
     'jersey',
     'sweaters',
     'dress shirts',
-    'acessories',
-    'home decoration',
+    'accessories',
+    'shoes',
     'bottoms',
     'all products'
   ];
@@ -23,15 +23,6 @@ const FilterBar = props => {
             {filter}
           </li>
         ))}
-        {/* <li>T-Shirts</li>
-        <li>Jackets</li>
-        <li onClick={() => props.filterItems('jersey')}>Jerseys</li>
-        <li>Sweaters</li>
-        <li>Dress Shirts</li>
-        <li>Accessories</li>
-        <li>Home Decor</li>
-        <li>Bottoms</li>
-        <li>All Products</li> */}
       </ul>
     </div>
   );

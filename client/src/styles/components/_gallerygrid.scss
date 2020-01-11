@@ -11,6 +11,7 @@
     border-style: double;
     overflow: hidden;
     position: relative;
+    cursor: pointer;
 
     &__image {
       width: 100%;
@@ -25,7 +26,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      padding: 3rem;
+      padding: 3rem 1rem;
       text-align: center;
       text-transform: none;
       opacity: 0;
@@ -37,12 +38,15 @@
       -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
       transition: opacity 0.35s, transform 0.35s;
 
-      h1 {
-        font-size: 1.2rem;
+      &--name {
+        font-size: 1.8rem;
+        text-transform: capitalize;
+        font-weight: bold;
+        color: black;
       }
     }
 
-    //just the animation
+    //just the animation make sure to move this to _animation.scss later
     &:hover &__image {
       opacity: 0.1;
       -webkit-transform: scale3d(2, 2, 1);

@@ -1,0 +1,31 @@
+// Do all the styling here right now, and then just divide it up later
+
+.itempage {
+  width: 100%;
+  display: flex;
+
+  // remove the margin later, it's just here right now so the navbar wont be in the way
+  padding-top: 30rem;
+
+  &__left {
+    width: 60%;
+    height: 50rem;
+    background: red;
+
+    &__image {
+      width: 80%;
+      background: green;
+      text-align: right;
+
+      &img {
+        width: 100%;
+      }
+    }
+  }
+
+  &__right {
+    width: 40%;
+    height: 50rem;
+    background: yellow;
+  }
+}
