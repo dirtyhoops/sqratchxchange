@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 100rem;
   // background-color: pink;
-  margin-top: 5rem;
+  margin-top: 2rem;
 
   &__items {
     width: 100%;
@@ -12,6 +12,8 @@
     overflow: hidden;
     position: relative;
     cursor: pointer;
+
+    box-shadow: 0.8rem 0.8rem 0.8rem #88888821;
 
     &__image {
       width: 100%;

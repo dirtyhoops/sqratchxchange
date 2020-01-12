@@ -46,3 +46,36 @@ export const getItem = id => async dispatch => {
     console.log('error getting shoes, make a ITEM ERROR DISPATCH LATER');
   }
 };
+
+export const addItem = ({
+  itemname,
+  description,
+  imagelink,
+  type
+}) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  const body = JSON.stringify({
+    itemname,
+    description,
+    imagelink,
+    type
+  });
+
+  try {
+    const res = await axios.post('/api/gallery', body, config);
+    // dispatch(setalert('Addition of the item is successful', 'success'))
+    console.log('succesful adding new item');
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      // errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+      console.log('erorrrrrrrrr');
+    }
+  }
+};

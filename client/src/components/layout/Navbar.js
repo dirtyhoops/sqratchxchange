@@ -22,7 +22,7 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a className='nav__links' id='nav-link-location' href='/gallery'>
+              <a className='nav__links' id='nav-link-gallery' href='/gallery'>
                 Gallery
               </a>
             </li>

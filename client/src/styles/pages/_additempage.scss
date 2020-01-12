@@ -1,0 +1,42 @@
+.additempage {
+  //take this padding out later and make sure to center the form
+  min-height: 100vh;
+}
+
+.form {
+  &__container {
+    border: 1px solid black;
+    width: 50rem;
+    padding: 3rem;
+
+    @include absCenter;
+  }
+
+  &__header {
+    text-align: center;
+    font-size: 2.5rem;
+    // font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  &__group {
+    width: 100%;
+    margin: 1.5rem 0;
+
+    & label {
+      display: block;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.3rem;
+    }
+  }
+
+  &__control {
+    padding: 0.5rem;
+    width: 100%;
+    display: block;
+    font-size: 1.3rem;
+  }
+}

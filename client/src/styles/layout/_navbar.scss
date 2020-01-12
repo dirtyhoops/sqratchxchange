@@ -10,6 +10,10 @@ nav.black {
   padding: 3.5rem 0 1rem 0;
   z-index: 999;
 
+  // Remove this later, just right now so we can see the navbar all the time BLACKENED
+  background: $color-black;
+  padding: 1rem 0 1rem 0;
+
   @include respond(phone) {
     padding: 1.5rem 0 1rem 0;
     background-color: $color-black;

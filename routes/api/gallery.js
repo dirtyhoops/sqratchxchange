@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 router.post(
   '/',
   [
-    check('name', 'Name is required')
+    check('itemname', 'Name is required')
       .not()
       .isEmpty(),
     check('description', 'Description is required')
@@ -32,7 +32,7 @@ router.post(
     check('type', 'Type is required')
       .not()
       .isEmpty(),
-    check('image', 'Image link is required')
+    check('imagelink', 'Image link is required')
       .not()
       .isEmpty()
   ],
@@ -44,11 +44,10 @@ router.post(
 
     try {
       const newItem = new Gallery({
-        name: req.body.name,
+        name: req.body.itemname,
         description: req.body.description,
         type: req.body.type,
-        image: req.body.image,
-        orientation: req.body.orientation
+        image: req.body.imagelink
       });
 
       const post = await newItem.save();

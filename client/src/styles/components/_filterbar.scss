@@ -1,6 +1,6 @@
 .filterbar {
   width: 100%;
-  padding: 1.2rem 0;
+  padding: 1rem 0;
   // background-color: yellow;
 
   &__ul {
@@ -12,6 +12,7 @@
       font-size: 1.5rem;
       cursor: pointer;
       letter-spacing: 1px;
+      text-transform: capitalize;
     }
   }
 }

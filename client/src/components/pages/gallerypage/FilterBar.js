@@ -9,10 +9,10 @@ const FilterBar = props => {
     'jacket',
     'jersey',
     'sweaters',
-    'dress shirts',
     'accessories',
     'shoes',
     'bottoms',
+    'toys',
     'all products'
   ];
   return (
