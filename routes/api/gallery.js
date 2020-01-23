@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @route     GET post/gallery
+// @route     POST api/gallery
 // @desc      Add an item to the gallery
 // @access    Public
 router.post(
@@ -38,6 +38,7 @@ router.post(
   ],
   async (req, res) => {
     const errors = validationResult(req);
+
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
@@ -50,10 +51,12 @@ router.post(
         image: req.body.imagelink
       });
 
-      const post = await newItem.save();
+      // Saves the new item to the DB
+      await newItem.save();
 
-      res.json(post);
+      res.json({ msg: 'Successfully added a new item to the gallery' });
     } catch (err) {
+      // CHANGE THIS TO DISPLAY WHAT THE ERROR IS
       console.error(err.message);
       res.status(500).send('Server Error');
     }

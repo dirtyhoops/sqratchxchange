@@ -21,11 +21,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
 
     &--text1 {
       color: white;
       font-size: 7rem;
-      text-transform: capitalize;
+      text-transform: uppercase;
+      line-height: 7rem;
     }
 
     &--text2 {
@@ -35,11 +37,20 @@
     }
 
     &--btn {
-      padding: 1rem;
+      display: inline-block;
+      padding: 1.2rem 1.5rem;
+      margin-top: 1rem;
       color: white;
       background-color: transparent;
       font-size: 1.5rem;
       border: 2px solid white;
+      text-decoration: none;
+      transition: ease all 0.5s;
+
+      &:hover {
+        color: black;
+        background-color: white;
+      }
     }
   }
 }

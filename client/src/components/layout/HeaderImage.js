@@ -6,7 +6,9 @@ const HeaderImage = () => {
       <div class='header__content'>
         <p class='header__content--text1'>sqratch xchange</p>
         <p class='header__content--text2'>neighborhood vintage thrift shop</p>
-        <button class='header__content--btn'>Check Gallery</button>
+        <a class='header__content--btn' href='/gallery'>
+          Check Our Gallery
+        </a>
       </div>
     </header>
   );

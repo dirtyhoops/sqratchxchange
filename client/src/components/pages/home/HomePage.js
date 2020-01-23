@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderImage from '../../layout/HeaderImage';
 import About from './About';
-import Offer from './Offer';
+import Location from './Location';
 
 // Add FRAGMENT later and remove the opening DIV
 
@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       <HeaderImage />
       <About />
-      <Offer />
+      <Location />
     </div>
   );
 };

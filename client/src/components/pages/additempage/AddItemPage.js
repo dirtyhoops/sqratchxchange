@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addItem } from '../../../actions/gallery';
+import { setAlert } from '../../../actions/alert';
 
-const AddItemPage = ({ addItem }) => {
+import Alert from '../../layout/Alert';
+
+const AddItemPage = ({ addItem, setAlert }) => {
   const [formData, setFormData] = useState({
     itemname: '',
     description: '',
@@ -20,8 +23,7 @@ const AddItemPage = ({ addItem }) => {
   const onSubmit = e => {
     e.preventDefault();
     if (admincode !== 'vape3onesx') {
-      // setAlert('Admin Code is incorrect', 'danger');
-      console.log('gotta have the right admin code to add item');
+      setAlert('Admin Code is incorrect', 'danger');
     } else {
       addItem({ itemname, description, imagelink, type });
     }
@@ -31,6 +33,7 @@ const AddItemPage = ({ addItem }) => {
     <div className='additempage container'>
       <div className='form__container'>
         <p className='form__header'>Add item</p>
+        <Alert />
         <form onSubmit={e => onSubmit(e)}>
           <div className='form__group'>
             <label htmlFor='itemname'>Item Name</label>
@@ -40,7 +43,6 @@ const AddItemPage = ({ addItem }) => {
               name='itemname'
               value={itemname}
               onChange={e => onChange(e)}
-              required
             ></input>
           </div>
           <div className='form__group'>
@@ -51,7 +53,6 @@ const AddItemPage = ({ addItem }) => {
               name='description'
               value={description}
               onChange={e => onChange(e)}
-              required
             ></input>
           </div>
           <div className='form__group'>
@@ -62,7 +63,6 @@ const AddItemPage = ({ addItem }) => {
               name='imagelink'
               value={imagelink}
               onChange={e => onChange(e)}
-              required
             ></input>
           </div>
           <div className='form__group'>
@@ -72,7 +72,6 @@ const AddItemPage = ({ addItem }) => {
               name='type'
               value={type}
               onChange={e => onChange(e)}
-              required
             >
               <option value='' selected>
                 Select the item type
@@ -95,15 +94,10 @@ const AddItemPage = ({ addItem }) => {
               name='admincode'
               value={admincode}
               onChange={e => onChange(e)}
-              required
             ></input>
           </div>
-          <div className='form__button'>
-            <input
-              type='submit'
-              className='btn btn-dark btn-block'
-              value='Add'
-            />
+          <div className='form__group'>
+            <input type='submit' className='form__button' value='ADD ITEM' />
           </div>
         </form>
       </div>
@@ -111,4 +105,4 @@ const AddItemPage = ({ addItem }) => {
   );
 };
 
-export default connect(null, { addItem })(AddItemPage);
+export default connect(null, { addItem, setAlert })(AddItemPage);

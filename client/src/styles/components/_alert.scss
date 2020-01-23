@@ -1,0 +1,41 @@
+.alert {
+  padding: 0.5em;
+  margin: 0.7rem 0;
+  opacity: 0.9;
+  background-color: #f4f4f4;
+  color: #333;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.alert-light {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.alert-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.alert-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.alert-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.alert-primary {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .alert {
+    margin: 0.5rem 0;
+  }
+}

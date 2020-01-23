@@ -1,5 +1,7 @@
 import { GET_ITEMS, GET_ITEM } from './types';
 
+import { setAlert } from './alert';
+
 import axios from 'axios';
 
 export const getItems = () => async dispatch => {
@@ -68,13 +70,14 @@ export const addItem = ({
 
   try {
     const res = await axios.post('/api/gallery', body, config);
-    // dispatch(setalert('Addition of the item is successful', 'success'))
-    console.log('succesful adding new item');
+
+    dispatch(setAlert(res.data.msg, 'success'));
+    // console.log('succesful adding new item');
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
-      // errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
       console.log('erorrrrrrrrr');
     }
   }

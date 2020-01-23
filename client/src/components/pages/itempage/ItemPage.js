@@ -27,6 +27,7 @@ const ItemPage = ({
           <div className='itempage__right'>
             <h1>{selectedItem.name}</h1>
             <p>{selectedItem.description}</p>
+            <p>type: {selectedItem.type}</p>
           </div>
         </div>
       ) : null}
