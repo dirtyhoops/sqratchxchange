@@ -1,4 +1,4 @@
-import { GET_ITEMS, GET_ITEM } from './types';
+import { GET_ITEMS, GET_RANDOM_ITEMS, GET_ITEM, ADD_SUCCESS } from './types';
 
 import { setAlert } from './alert';
 
@@ -10,6 +10,21 @@ export const getItems = () => async dispatch => {
 
     dispatch({
       type: GET_ITEMS,
+      payload: res.data
+    });
+  } catch (err) {
+    // Change this to dispatch something
+    console.log('error getting items');
+  }
+};
+
+// get 6 random items to display for "more items"
+export const getRandomItems = () => async dispatch => {
+  try {
+    const res = await axios.get('/api/gallery/random');
+
+    dispatch({
+      type: GET_RANDOM_ITEMS,
       payload: res.data
     });
   } catch (err) {
@@ -45,7 +60,7 @@ export const getItem = id => async dispatch => {
       payload: res.data
     });
   } catch (err) {
-    console.log('error getting shoes, make a ITEM ERROR DISPATCH LATER');
+    console.log('error getting items, make a ITEM ERROR DISPATCH LATER');
   }
 };
 
@@ -72,13 +87,17 @@ export const addItem = ({
     const res = await axios.post('/api/gallery', body, config);
 
     dispatch(setAlert(res.data.msg, 'success'));
-    // console.log('succesful adding new item');
+
+    // Set the addingSuccess to true so it refreshes the page and it clears the form
+    setTimeout(() => dispatch({ type: ADD_SUCCESS, payload: true }), 2000);
+
+    // Resets the addingSuccess to false
+    setTimeout(() => dispatch({ type: ADD_SUCCESS, payload: false }), 10);
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-      console.log('erorrrrrrrrr');
     }
   }
 };

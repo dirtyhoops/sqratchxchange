@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { addItem } from '../../../actions/gallery';
 import { setAlert } from '../../../actions/alert';
 
 import Alert from '../../layout/Alert';
 
-const AddItemPage = ({ addItem, setAlert }) => {
+const AddItemPage = ({ addingSuccess, addItem, setAlert }) => {
   const [formData, setFormData] = useState({
     itemname: '',
     description: '',
@@ -29,12 +30,18 @@ const AddItemPage = ({ addItem, setAlert }) => {
     }
   };
 
+  // CHANGE THIS TO JUST CLEAR THE STATE AND THE FORM
+  if (addingSuccess) {
+    // return <Redirect to='/gallery' />;
+    window.location.reload();
+  }
+
   return (
     <div className='additempage container'>
       <div className='form__container'>
         <p className='form__header'>Add item</p>
         <Alert />
-        <form onSubmit={e => onSubmit(e)}>
+        <form onSubmit={e => onSubmit(e)} id='item-form'>
           <div className='form__group'>
             <label htmlFor='itemname'>Item Name</label>
             <input
@@ -105,4 +112,8 @@ const AddItemPage = ({ addItem, setAlert }) => {
   );
 };
 
-export default connect(null, { addItem, setAlert })(AddItemPage);
+const mapStateToProps = state => ({
+  addingSuccess: state.gallery.addingSuccess
+});
+
+export default connect(mapStateToProps, { addItem, setAlert })(AddItemPage);

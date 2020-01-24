@@ -10,6 +10,21 @@ const Gallery = require('../../models/Gallery');
 router.get('/', async (req, res) => {
   try {
     const items = await Gallery.find().sort({ date: -1 });
+
+    res.json(items);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route     GET api/gallery/random
+// @desc      Gallery route
+// @access    Public
+router.get('/random', async (req, res) => {
+  try {
+    const items = await Gallery.aggregate([{ $sample: { size: 6 } }]);
+
     res.json(items);
   } catch (err) {
     console.error(err.message);

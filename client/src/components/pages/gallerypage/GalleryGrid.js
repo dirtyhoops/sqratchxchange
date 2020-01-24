@@ -14,7 +14,11 @@ const GalleryGrid = ({ items }) => {
                     {item.name}
                   </p>
                 </div>
-                <img className='gallerygrid__items__image' src={item.image} />
+                <img
+                  className='gallerygrid__items__image'
+                  src={item.image}
+                  alt='itemimg'
+                />
               </div>
             </Link>
           </div>

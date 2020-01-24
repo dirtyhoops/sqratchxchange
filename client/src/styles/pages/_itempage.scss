@@ -3,6 +3,7 @@
 .itempage {
   width: 100%;
   display: flex;
+  min-height: 100vh;
 
   // remove the margin later, it's just here right now so the navbar wont be in the way
   padding-top: 30rem;

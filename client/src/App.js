@@ -6,6 +6,7 @@ import HomePage from './components/pages/home/HomePage';
 import GalleryPage from './components/pages/gallerypage/GalleryPage';
 import ItemPage from './components/pages/itempage/ItemPage';
 import AddItemPage from './components/pages/additempage/AddItemPage';
+import Footer from './components/layout/Footer';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -19,10 +20,13 @@ const App = () => (
     <Router>
       <Fragment>
         <Navbar />
-        <Route exact path='/' component={HomePage} />
-        <Route exact path='/gallery' component={GalleryPage} />
-        <Route exact path='/gallery/:id' component={ItemPage} />
-        <Route exact path='/admin/additem' component={AddItemPage} />
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/gallery' component={GalleryPage} />
+          <Route exact path='/gallery/:id' component={ItemPage} />
+          <Route exact path='/admin/additem' component={AddItemPage} />
+        </Switch>
+        <Footer />
       </Fragment>
     </Router>
   </Provider>

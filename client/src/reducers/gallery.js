@@ -1,9 +1,16 @@
-import { GET_ITEMS, GET_ITEM } from '../actions/types';
+import {
+  GET_ITEMS,
+  GET_RANDOM_ITEMS,
+  GET_ITEM,
+  ADD_SUCCESS
+} from '../actions/types';
 
 const initialState = {
   selectedItem: null,
   items: [],
-  loadingItems: true
+  randomItems: [],
+  loadingItems: true,
+  addingSuccess: false
 };
 
 export default function(state = initialState, action) {
@@ -16,10 +23,20 @@ export default function(state = initialState, action) {
         items: payload,
         loadingItems: false
       };
+    case GET_RANDOM_ITEMS:
+      return {
+        ...state,
+        randomItems: payload
+      };
     case GET_ITEM:
       return {
         ...state,
         selectedItem: payload
+      };
+    case ADD_SUCCESS:
+      return {
+        ...state,
+        addingSuccess: payload
       };
 
     default:
