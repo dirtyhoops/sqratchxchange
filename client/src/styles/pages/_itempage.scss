@@ -4,9 +4,14 @@
   width: 100%;
   display: flex;
   min-height: 100vh;
+  flex-wrap: wrap;
 
   // remove the margin later, it's just here right now so the navbar wont be in the way
   padding-top: 30rem;
+
+  &__header {
+    font-size: 3rem;
+  }
 
   &__left {
     width: 60%;
@@ -18,7 +23,7 @@
       background: green;
       text-align: right;
 
-      &img {
+      & img {
         width: 100%;
       }
     }
@@ -28,5 +33,24 @@
     width: 40%;
     height: 50rem;
     background: yellow;
+  }
+
+  &__moreproducts {
+    width: 100%;
+    text-align: center;
+
+    &__box {
+      width: 19%;
+      margin: 0 0.5rem;
+      display: inline-block;
+      height: 20rem;
+      padding: 0.5rem;
+      background-color: red;
+
+      & img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }

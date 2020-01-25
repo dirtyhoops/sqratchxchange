@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 // @access    Public
 router.get('/random', async (req, res) => {
   try {
-    const items = await Gallery.aggregate([{ $sample: { size: 6 } }]);
+    const items = await Gallery.aggregate([{ $sample: { size: 5 } }]);
 
     res.json(items);
   } catch (err) {
