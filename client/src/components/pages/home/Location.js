@@ -20,10 +20,14 @@ const Location = () => {
             ></iframe>
           </div>
           <div className='location__info'>
-            <p>left info</p>
+            <p className='location__info__text'>
+              1271 10th Street Suite A, Monterey, California 93940
+            </p>
           </div>
           <div className='location__info'>
-            <p>right info</p>
+            <p className='location__info__text'>
+              Monday - Saturday: 11AM - 6PM
+            </p>
           </div>
         </div>
       </div>

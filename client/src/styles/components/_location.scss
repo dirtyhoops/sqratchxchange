@@ -27,9 +27,13 @@
   &__info {
     width: 50%;
     margin-top: 1rem;
-    height: 15rem; // change this later
+    height: 7rem; // change this later
     padding: 2rem;
-    background: pink;
+    // background: pink;
     text-align: center;
+
+    &__text {
+      font-size: 1.6rem;
+    }
   }
 }

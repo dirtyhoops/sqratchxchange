@@ -38,9 +38,22 @@ const ItemPage = ({
             </div>
           </div>
           <div className='itempage__right'>
-            <h1>{selectedItem.name}</h1>
-            <p>{selectedItem.description}</p>
-            <p>type: {selectedItem.type}</p>
+            <p className='itempage__text__name'>{selectedItem.name}</p>
+            <p className='itempage__text__description'>
+              Description: {selectedItem.description}
+            </p>
+            <button className='itempage__button'>ask about the item</button>
+
+            {/* THIS IS GOING TO BE THE FORM TO ASK ABOUT THE ITEM, ITS GONNA BE A TOGGLED FORM */}
+            <div className='itempage__form'>
+              <form>
+                <label>YOUR EMAIL:</label>
+                <input type='text'></input>
+                <br></br>
+                <label>YOUR QUESTION:</label>
+                <input type='textarea'></input>
+              </form>
+            </div>
           </div>
           <div className='itempage__moreproducts'>
             <h3 className='itempage__header'>More Products</h3>

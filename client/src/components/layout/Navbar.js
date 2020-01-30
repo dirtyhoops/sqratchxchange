@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Logo from '../../img/logo-cut.png';
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  // Function that handles the scroll event that triggers when the page is scrolled
+  const handleScroll = () => {
+    window.addEventListener('scroll', () => {
+      const isTop = window.scrollY < 100;
+      if (isTop !== true) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    });
+  };
+
+  useEffect(() => {
+    handleScroll();
+  }, [handleScroll]);
+
   return (
-    <nav className='nav'>
+    <nav className={scrolled ? 'nav black' : 'nav'}>
       <div className='nav__menu container'>
         <div className='nav__logo' id='nav-link-logo'>
           <img className='nav__logo__image' src={Logo} />
