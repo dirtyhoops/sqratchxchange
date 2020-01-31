@@ -19,7 +19,7 @@ const Navbar = () => {
 
   useEffect(() => {
     handleScroll();
-  }, [handleScroll]);
+  }, []);
 
   return (
     <nav className={scrolled ? 'nav black' : 'nav'}>

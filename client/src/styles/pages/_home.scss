@@ -7,8 +7,11 @@
   // clip-path: ellipse(110% 52% at 50% 45%);
 }
 
-.section-location {
+.section-offer {
   min-height: 60rem;
-  padding: 0 0 15rem 0;
-  background-color: rgb(216, 226, 188);
+  background-color: $color-home-background;
+}
+
+.section-location {
+  background-color: white;
 }

@@ -6,20 +6,19 @@
 
   &__items {
     width: 100%;
-    height: 35.8rem;
-    border: 4px solid black;
-    border-style: double;
+    height: 25rem;
+    padding: 0.5rem;
+    border: 3px double $color-light-greyish;
+    border-radius: 4px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
-
     box-shadow: 0.8rem 0.8rem 0.8rem #88888821;
 
     &__image {
       width: 100%;
       height: 100%;
       object-fit: contain;
-
       transition: opacity 0.35s, transform 0.35s;
     }
 

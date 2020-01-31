@@ -14,19 +14,23 @@ const ItemPage = ({
   selectedItem,
   randomItems
 }) => {
-  // @TODO: FIGURE OUT HOW TO RUN loadItems USING useEffect and it only running once. and then after that, change these two useEffect into single one that runs loadItems
-  useEffect(() => {
+  const loadItems = id => {
     getItem(id);
-  }, [getItem]);
-
-  useEffect(() => {
-    getRandomItems();
-  }, [getRandomItems]);
-
-  const loadItems = idd => {
-    getItem(idd);
     getRandomItems();
   };
+
+  useEffect(() => {
+    loadItems(id);
+  }, []);
+
+  // @TODO: FIGURE OUT HOW TO RUN loadItems USING useEffect and it only running once. and then after that, change these two useEffect into single one that runs loadItems
+  // useEffect(() => {
+  //   getItem(id);
+  // }, [getItem]);
+
+  // useEffect(() => {
+  //   getRandomItems();
+  // }, [getRandomItems]);
 
   return (
     <>
@@ -42,7 +46,6 @@ const ItemPage = ({
             <p className='itempage__text__description'>
               Description: {selectedItem.description}
             </p>
-            <button className='itempage__button'>ask about the item</button>
 
             {/* THIS IS GOING TO BE THE FORM TO ASK ABOUT THE ITEM, ITS GONNA BE A TOGGLED FORM */}
             <div className='itempage__form'>
@@ -52,6 +55,8 @@ const ItemPage = ({
                 <br></br>
                 <label>YOUR QUESTION:</label>
                 <input type='textarea'></input>
+                <br></br>
+                <button className='itempage__button'>ask about the item</button>
               </form>
             </div>
           </div>

@@ -19,15 +19,17 @@ const Location = () => {
               marginwidth='0'
             ></iframe>
           </div>
-          <div className='location__info'>
-            <p className='location__info__text'>
+          <div className='location__info location__info--leftalign'>
+            <p className='text--location'>Contact Us:</p>
+            <p className='text--location'>(831)718-8131</p>
+          </div>
+          <div className='location__info location__info--centeralign'>
+            <p className='text--location'>
               1271 10th Street Suite A, Monterey, California 93940
             </p>
           </div>
-          <div className='location__info'>
-            <p className='location__info__text'>
-              Monday - Saturday: 11AM - 6PM
-            </p>
+          <div className='location__info location__info--rightalign'>
+            <p className='text--location'>Monday - Saturday: 11AM - 6PM</p>
           </div>
         </div>
       </div>
