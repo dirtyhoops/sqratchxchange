@@ -40,6 +40,9 @@ const ItemPage = ({
             <div className='itempage__left__image'>
               <img src={selectedItem.image} />
             </div>
+            <div className='itempage__left__smallimages'>
+              <div className='itempage__left__smallimages__box'></div>
+            </div>
           </div>
           <div className='itempage__right'>
             <p className='itempage__text__name'>{selectedItem.name}</p>
@@ -61,19 +64,21 @@ const ItemPage = ({
             </div>
           </div>
           <div className='itempage__moreproducts'>
-            <h3 className='itempage__header'>More Products</h3>
-            {randomItems.length > 0
-              ? randomItems.map(randomItem => (
-                  <Link to={`/gallery/${randomItem._id}`}>
-                    <div
-                      className='itempage__moreproducts__box'
-                      onClick={() => loadItems(`${randomItem._id}`)}
-                    >
-                      <img src={randomItem.image} alt='productsimg' />
-                    </div>
-                  </Link>
-                ))
-              : null}
+            <h3 className='heading-secondary'>More Products</h3>
+            <div className='itempage__moreproducts__container'>
+              {randomItems.length > 0
+                ? randomItems.map(randomItem => (
+                    <Link to={`/gallery/${randomItem._id}`}>
+                      <div
+                        className='itempage__moreproducts__box'
+                        onClick={() => loadItems(`${randomItem._id}`)}
+                      >
+                        <img src={randomItem.image} alt='productsimg' />
+                      </div>
+                    </Link>
+                  ))
+                : null}
+            </div>
           </div>
         </div>
       ) : null}

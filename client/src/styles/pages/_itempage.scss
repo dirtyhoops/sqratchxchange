@@ -6,36 +6,46 @@
   min-height: 100vh;
   flex-wrap: wrap;
 
-  // remove the margin later, it's just here right now so the navbar wont be in the way
-  padding-top: 30rem;
-
-  &__header {
-    font-size: 3rem;
-  }
+  // remove the margin later, it's just here right now so the navbar wont be in the way and so there's more space after more products
+  padding: 30rem 0;
 
   &__left {
     width: 60%;
-    height: 70rem;
-    background: red;
+    // height: 80rem;
+    // background: red;
 
     &__image {
-      width: 65rem;
+      width: 100%;
       height: 65rem;
-      background: green;
       text-align: right;
-      border: 5px solid pink;
+      margin: 0 auto;
+      border: 4px double $color-light-greyish;
 
       & img {
         width: 100%;
         height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &__smallimages {
+      width: 100%;
+      height: 15rem;
+      // background: blue;
+      margin: 1rem 0;
+
+      &__box {
+        width: 14rem;
+        height: 14rem;
+        border: 1px solid black;
       }
     }
   }
 
   &__right {
     width: 40%;
-    height: 70rem;
-    background: yellow;
+    // height: 80rem;
+    // background: yellow;
     padding: 0 1rem;
   }
 
@@ -62,13 +72,19 @@
     width: 100%;
     text-align: center;
 
+    &__container {
+      width: 100%;
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
     &__box {
-      width: 19%;
-      margin: 0 0.5rem;
-      display: inline-block;
-      height: 20rem;
+      width: 22rem; // Add a minimum width later once you're working on the responsiveness
+      height: 22rem;
       padding: 0.5rem;
-      background-color: red;
+      border: 4px double $color-light-greyish;
 
       & img {
         width: 100%;
