@@ -2,10 +2,10 @@
   height: 100vh;
   background-image: linear-gradient(
       to bottom,
-      rgba($color-black, 0.4),
-      rgba($color-black, 0.4)
+      rgba($color-black, 0.5),
+      rgba($color-black, 0.5)
     ),
-    url('../../img/header-image_large.jpg');
+    url('../../img/header-image.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -17,7 +17,7 @@
 
   &__content {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -25,21 +25,23 @@
 
     &--text1 {
       color: white;
-      font-size: 7rem;
+      font-size: 8rem;
       text-transform: uppercase;
-      line-height: 7rem;
+      font-family: 'Rock Salt', cursive;
+      font-weight: bold;
     }
 
     &--text2 {
       color: white;
       font-size: 3rem;
       text-transform: capitalize;
+      margin-top: 2rem;
     }
 
     &--btn {
       display: inline-block;
       padding: 1.2rem 1.5rem;
-      margin-top: 1rem;
+      margin-top: 2rem;
       color: white;
       background-color: transparent;
       font-size: 1.5rem;

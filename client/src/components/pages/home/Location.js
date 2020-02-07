@@ -11,12 +11,13 @@ const Location = () => {
             <iframe
               width='100%'
               height='100%'
+              title='location-map'
               id='gmap_canvas'
               src='https://maps.google.com/maps?q=1271%2010th%20St%20suite%20a%2C%20Monterey%2C%20CA%2093940&t=&z=15&ie=UTF8&iwloc=&output=embed'
-              frameborder='0'
+              frameBorder='0'
               scrolling='no'
-              marginheight='0'
-              marginwidth='0'
+              marginHeight='0'
+              marginWidth='0'
             ></iframe>
           </div>
           <div className='location__info location__info--leftalign'>
