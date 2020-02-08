@@ -1,19 +1,17 @@
 .about {
-  // background-color: yellow;
   &__container {
     display: flex;
 
     &--left {
       width: 45%;
-      // background-color: yellow;
       height: 40rem;
       position: relative;
       padding: 1rem;
+      opacity: 0;
     }
 
     &--right {
       width: 55%;
-      // background-color: green;
       height: 40rem;
       text-align: left;
       padding: 1rem;

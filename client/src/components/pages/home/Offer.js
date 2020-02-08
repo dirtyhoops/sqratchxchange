@@ -8,11 +8,11 @@ const Offer = () => {
   const intersection = useIntersection(sectionRef, {
     root: null,
     rootMargin: '0px',
-    threshold: 0.8
+    threshold: 0.9
   });
 
   const fadeIn = element => {
-    gsap.to(element, 0.5, {
+    gsap.to(element, 1.5, {
       opacity: 1,
       y: -70,
       ease: 'power4.out',
@@ -23,14 +23,14 @@ const Offer = () => {
   };
 
   const fadeOut = element => {
-    gsap.to(element, 1, {
+    gsap.to(element, 1.8, {
       opacity: 0,
       y: -20,
       ease: 'power4.out'
     });
   };
 
-  intersection && intersection.intersectionRatio < 0.8
+  intersection && intersection.intersectionRatio < 0.9
     ? // Not reached
       fadeOut('.fadeIn')
     : fadeIn('.fadeIn'); // Reached so animate
@@ -38,12 +38,12 @@ const Offer = () => {
   return (
     <section className='section-offer' ref={sectionRef}>
       <div className='offer__topshape'></div>
+      <div className='offer__topshape__shadow'></div>
       <div className='offer container'>
         <h2 className='heading-primary fadeIn animation-position'>
           what we offer
         </h2>
 
-        {/* WILL DELETE THIS LATER OR TRANSFER IT TO OFFER SECTION */}
         <div className='offer__box'>
           <div className='offer__box__grid fadeIn animation-position'>
             <img src='https://c7.uihere.com/icons/520/869/191/lightning-consignment-46011b924036852cc22a27d1fc706d86.png' />

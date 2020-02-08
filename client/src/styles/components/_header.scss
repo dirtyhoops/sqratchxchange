@@ -1,58 +1,75 @@
 .header {
-  height: 100vh;
-  background-image: linear-gradient(
-      to bottom,
-      rgba($color-black, 0.5),
-      rgba($color-black, 0.5)
-    ),
-    url('../../img/header-image.jpg');
-  background-size: cover;
-  background-position: center;
   position: relative;
-  -webkit-clip-path: ellipse(110% 52% at 50% 45%);
-  clip-path: ellipse(110% 52% at 50% 45%);
 
-  // -webkit-clip-path: circle(60% at 50% 10%);
-  // clip-path: circle(50.0% at 50% 50%);
+  &__container {
+    height: 100vh;
+    background-image: linear-gradient(
+        to bottom,
+        rgba($color-black, 0.5),
+        rgba($color-black, 0.5)
+      ),
+      url('../../img/header-image.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    -webkit-clip-path: ellipse(110% 52% at 50% 45%);
+    clip-path: ellipse(110% 52% at 50% 45%);
 
-  &__content {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-family: 'Josefin Sans', sans-serif;
+    // -webkit-clip-path: circle(60% at 50% 10%);
+    // clip-path: circle(50.0% at 50% 50%);
 
-    &--text1 {
-      color: white;
-      font-size: 8rem;
-      text-transform: uppercase;
-      font-family: 'Rock Salt', cursive;
-      font-weight: bold;
-    }
+    &__content {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-family: 'Josefin Sans', sans-serif;
 
-    &--text2 {
-      color: white;
-      font-size: 3rem;
-      text-transform: capitalize;
-      margin-top: 2rem;
-    }
+      &--text1 {
+        color: white;
+        font-size: 8rem;
+        text-transform: uppercase;
+        font-family: 'Rock Salt', cursive;
+        font-weight: bold;
+        letter-spacing: 3px;
+      }
 
-    &--btn {
-      display: inline-block;
-      padding: 1.2rem 1.5rem;
-      margin-top: 2rem;
-      color: white;
-      background-color: transparent;
-      font-size: 1.5rem;
-      border: 2px solid white;
-      text-decoration: none;
-      transition: ease all 0.5s;
+      &--text2 {
+        color: white;
+        font-size: 3.1rem;
+        text-transform: capitalize;
+        margin-top: 2rem;
+        font-family: 'Kalam', cursive;
+        letter-spacing: 2px;
+      }
 
-      &:hover {
-        color: black;
-        background-color: white;
+      &--btn {
+        display: inline-block;
+        padding: 1.2rem 1.5rem;
+        margin-top: 2rem;
+        color: white;
+        background-color: transparent;
+        font-size: 1.5rem;
+        border: 2px solid white;
+        text-decoration: none;
+        transition: ease all 0.5s;
+
+        &:hover {
+          color: black;
+          background-color: white;
+        }
       }
     }
+  }
+
+  &__shadow {
+    width: 100%;
+    height: 20rem;
+    background-color: $color-curve-shadow;
+    -webkit-clip-path: ellipse(62% 97% at 50% 0%);
+    clip-path: ellipse(62% 97% at 50% 0%);
+    position: absolute;
+    top: 82.2%;
   }
 }
