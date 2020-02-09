@@ -46,15 +46,24 @@ const Offer = () => {
 
         <div className='offer__box'>
           <div className='offer__box__grid fadeIn animation-position'>
-            <img src='https://c7.uihere.com/icons/520/869/191/lightning-consignment-46011b924036852cc22a27d1fc706d86.png' />
+            <img
+              src='https://c7.uihere.com/icons/520/869/191/lightning-consignment-46011b924036852cc22a27d1fc706d86.png'
+              alt='consign icon'
+            />
             <p className='text--offer'>we consign</p>
           </div>
           <div className='offer__box__grid fadeIn animation-position'>
-            <img src='https://www.salvationarmycarolinas.org/assets/components/phpthumbof/cache/iconsHanger.389d8252fd8f7b0a637f135159f4b242.png' />
+            <img
+              src='https://www.salvationarmycarolinas.org/assets/components/phpthumbof/cache/iconsHanger.389d8252fd8f7b0a637f135159f4b242.png'
+              alt='clothing icon'
+            />
             <p className='text--offer'>vintage clothing and nostalgia items</p>
           </div>
           <div className='offer__box__grid fadeIn animation-position'>
-            <img src='https://i.ya-webdesign.com/images/free-shipping-icon-png-17.png' />
+            <img
+              src='https://i.ya-webdesign.com/images/free-shipping-icon-png-17.png'
+              alt='shipping icon'
+            />
             <p className='text--offer'>we ship items</p>
           </div>
         </div>

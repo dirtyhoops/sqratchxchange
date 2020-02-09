@@ -2,7 +2,8 @@ import {
   GET_ITEMS,
   GET_RANDOM_ITEMS,
   GET_ITEM,
-  ADD_SUCCESS
+  ADD_SUCCESS,
+  RESET_LOADINGITEMS
 } from '../actions/types';
 
 const initialState = {
@@ -37,6 +38,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         addingSuccess: payload
+      };
+    case RESET_LOADINGITEMS:
+      return {
+        ...state,
+        loadingItems: true
       };
 
     default:

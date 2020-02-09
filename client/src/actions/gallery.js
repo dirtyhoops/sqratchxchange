@@ -1,4 +1,10 @@
-import { GET_ITEMS, GET_RANDOM_ITEMS, GET_ITEM, ADD_SUCCESS } from './types';
+import {
+  GET_ITEMS,
+  GET_RANDOM_ITEMS,
+  GET_ITEM,
+  ADD_SUCCESS,
+  RESET_LOADINGITEMS
+} from './types';
 
 import { setAlert } from './alert';
 
@@ -41,7 +47,7 @@ export const filterItems = type => async dispatch => {
     dispatch({
       type: GET_ITEMS,
       payload:
-        type === 'all products' || null
+        type === 'all products'
           ? res.data
           : res.data.filter(item => item.type === type)
     });
@@ -100,4 +106,11 @@ export const addItem = ({
       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
   }
+};
+
+// Just to reset loadingItems in the redux
+export const resetLoadingItems = () => async dispatch => {
+  dispatch({
+    type: RESET_LOADINGITEMS
+  });
 };

@@ -27,7 +27,7 @@
     &--1 {
       height: 30rem;
       width: 30rem;
-      background-image: url('../../img/sx_about2.jpeg');
+      background-image: url('../../img/sx_about1-sm.jpg');
       background-size: cover;
       background-position: center;
       -webkit-clip-path: circle(50% at 50% 50%);
@@ -39,7 +39,7 @@
       height: 14rem;
       width: 14rem;
       @include absCenter;
-      background-image: url('../../img/sx_about1.jpg');
+      background-image: url('../../img/sx_about2-sm.jpg');
       background-size: cover;
       background-position: top;
       -webkit-clip-path: circle(50% at 50% 50%);

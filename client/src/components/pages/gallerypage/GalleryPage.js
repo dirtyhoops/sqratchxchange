@@ -10,9 +10,16 @@ import GalleryHeader from './GalleryHeader';
 
 // Maybve take the gallerypage div and just add a top margin for the header
 
-const GalleryPage = ({ getItems, items, filterItems }) => {
+const GalleryPage = ({
+  getItems,
+  gallery: { items, loadingItems },
+  filterItems
+}) => {
   useEffect(() => {
-    getItems();
+    // Loads all the items when there's no filter or when it's first time
+    if (loadingItems) {
+      getItems();
+    }
   }, [getItems]);
 
   // @TODO:
@@ -28,7 +35,8 @@ const GalleryPage = ({ getItems, items, filterItems }) => {
 };
 
 const mapStateToProps = state => ({
-  items: state.gallery.items
+  gallery: state.gallery
+  // items: state.gallery.items
 });
 
 export default connect(mapStateToProps, {

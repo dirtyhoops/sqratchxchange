@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import Logo from '../../img/sxlogo.png';
+import { resetLoadingItems } from '../../actions/gallery';
 
-const Navbar = () => {
+import Logo from '../../img/sxlogo-sm.png';
+
+const Navbar = ({ resetLoadingItems }) => {
   const [scrolled, setScrolled] = useState(false);
 
   // Function that handles the scroll event that triggers when the page is scrolled
@@ -25,11 +29,35 @@ const Navbar = () => {
     <nav className={scrolled ? 'nav black' : 'nav'}>
       <div className='nav__menu container'>
         <div className='nav__logo' id='nav-link-logo'>
-          <img className='nav__logo__image' src={Logo} />
+          <Link to={'/'} onClick={() => resetLoadingItems()}>
+            <img
+              className='nav__logo__image'
+              src={Logo}
+              alt='sqratch xchange logo'
+            />
+          </Link>
         </div>
         <div className='nav__menu--right'>
           <ul>
-            <li>
+            <li className='nav__links'>
+              <Link to={'/'} onClick={() => resetLoadingItems()}>
+                Home
+              </Link>
+            </li>
+
+            {/* <Link to={'/about'}> */}
+            <li className='nav__links'>About</li>
+            {/* </Link> */}
+
+            <li className='nav__links'>
+              <Link to={'/gallery'}>Gallery</Link>
+            </li>
+
+            {/* <Link to={'/location'}> */}
+            <li className='nav__links'>Location</li>
+            {/* </Link> */}
+
+            {/* <li>
               <a className='nav__links' id='nav-link-home' href='/'>
                 Home
               </a>
@@ -48,7 +76,7 @@ const Navbar = () => {
               <a className='nav__links' id='nav-link-location'>
                 Location
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -60,4 +88,6 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+// resetLoadingItems
+
+export default connect(null, { resetLoadingItems })(Navbar);

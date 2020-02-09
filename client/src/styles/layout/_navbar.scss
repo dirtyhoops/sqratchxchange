@@ -97,18 +97,19 @@ nav.black {
           width: 100%;
           margin-bottom: 4rem;
         }
+      }
 
-        .nav__links {
-          text-decoration: none;
-          color: $color-white;
-          font-size: 1.4rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 1px;
+      .nav__links,
+      a {
+        text-decoration: none;
+        color: $color-white;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
 
-          @include respond(phone) {
-            font-size: 2rem;
-          }
+        @include respond(phone) {
+          font-size: 2rem;
         }
       }
     }

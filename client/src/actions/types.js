@@ -4,3 +4,4 @@ export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
 export const ADD_SUCCESS = 'ADD_SUCCESS';
 export const GET_RANDOM_ITEMS = 'GET_RANDOM_ITEMS';
+export const RESET_LOADINGITEMS = 'RESET_LOADINGITEMS';

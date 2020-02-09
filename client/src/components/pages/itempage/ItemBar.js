@@ -7,7 +7,7 @@ const ItemBar = props => {
 
   const { filterItems } = props;
 
-  const filterss = [
+  const filters = [
     { name: 'shirts', type: 'shirt' },
     { name: 'jackets', type: 'jacket' },
     { name: 'jerseys', type: 'jersey' },
@@ -19,23 +19,16 @@ const ItemBar = props => {
     { name: 'all products', type: 'all products' }
   ];
 
-  const filters = [
-    'shirt',
-    'jacket',
-    'jersey',
-    'sweater',
-    'accessories',
-    'shoes',
-    'bottom',
-    'toys',
-    'all products'
-  ];
   return (
     <div className='filterbar container'>
       <ul className='filterbar__ul'>
-        {filterss.map((filter, key) => (
-          <Link to={`/gallery`} onClick={() => filterItems(filter.type)}>
-            <li key={key}>{filter.name}</li>
+        {filters.map((filter, index) => (
+          <Link
+            key={index}
+            to={`/gallery`}
+            onClick={() => filterItems(filter.type)}
+          >
+            <li>{filter.name}</li>
           </Link>
         ))}
       </ul>

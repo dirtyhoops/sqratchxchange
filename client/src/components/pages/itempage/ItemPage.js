@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -24,8 +24,7 @@ const ItemPage = ({
   };
 
   useEffect(() => {
-    getItem(id);
-    getRandomItems();
+    loadItems(id);
   }, []);
 
   return (
@@ -36,7 +35,7 @@ const ItemPage = ({
         <div className='itempage container'>
           <div className='itempage__left'>
             <div className='itempage__left__image'>
-              <img src={selectedItem.image} />
+              <img src={selectedItem.image} alt='selected item main image' />
             </div>
             <div className='itempage__left__smallimages'>
               <div className='itempage__left__smallimages__box'></div>
@@ -65,8 +64,8 @@ const ItemPage = ({
             <h3 className='heading-secondary'>More Products</h3>
             <div className='itempage__moreproducts__container'>
               {randomItems.length > 0
-                ? randomItems.map(randomItem => (
-                    <Link to={`/gallery/${randomItem._id}`}>
+                ? randomItems.map((randomItem, index) => (
+                    <Link key={index} to={`/gallery/${randomItem._id}`}>
                       <div
                         className='itempage__moreproducts__box'
                         onClick={() => loadItems(`${randomItem._id}`)}
