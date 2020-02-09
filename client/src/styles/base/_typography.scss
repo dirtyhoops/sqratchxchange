@@ -20,6 +20,7 @@ body {
   letter-spacing: 3px;
 }
 
+// Just the texts that are not headers
 .text {
   &--about {
     font-size: 1.6rem;
@@ -36,6 +37,16 @@ body {
   &--location {
     font-size: 1.6rem;
   }
+}
+
+// Typography for the page headers
+.header-text {
+  color: $color-white;
+  font-size: 7rem;
+  text-transform: capitalize;
+  letter-spacing: 1rem;
+  font-family: 'Permanent Marker', cursive;
+  @include absCenter;
 }
 
 // //have 2 types with 2 different font color

@@ -1,6 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const FilterBar = props => {
+const ItemBar = props => {
+  // @ Todo
+  // 1. have an onClick that change the filter
+
+  const { filterItems } = props;
+
   const filterss = [
     { name: 'shirts', type: 'shirt' },
     { name: 'jackets', type: 'jacket' },
@@ -28,13 +34,13 @@ const FilterBar = props => {
     <div className='filterbar container'>
       <ul className='filterbar__ul'>
         {filterss.map((filter, key) => (
-          <li key={key} onClick={() => props.filterItems(filter.type)}>
-            {filter.name}
-          </li>
+          <Link to={`/gallery`} onClick={() => filterItems(filter.type)}>
+            <li key={key}>{filter.name}</li>
+          </Link>
         ))}
       </ul>
     </div>
   );
 };
 
-export default FilterBar;
+export default ItemBar;

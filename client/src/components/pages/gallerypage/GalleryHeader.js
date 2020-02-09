@@ -2,8 +2,8 @@ import React from 'react';
 
 const GalleryHeader = () => {
   return (
-    <div className='galleryheader'>
-      <h2 className='galleryheader__text'>Gallery</h2>
+    <div className='pageheader pageheader--gallery'>
+      <h2 className='header-text'>Gallery</h2>
     </div>
   );
 };

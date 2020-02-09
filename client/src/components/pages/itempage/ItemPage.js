@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { getItem, getRandomItems } from '../../../actions/gallery';
+import { getItem, getRandomItems, filterItems } from '../../../actions/gallery';
+
+import ItemPageHeader from './ItemPageHeader';
+import ItemBar from './ItemBar';
 
 const ItemPage = ({
   getItem,
   getRandomItems,
+  filterItems,
   match: {
     params: { id }
   },
@@ -20,20 +24,14 @@ const ItemPage = ({
   };
 
   useEffect(() => {
-    loadItems(id);
+    getItem(id);
+    getRandomItems();
   }, []);
-
-  // @TODO: FIGURE OUT HOW TO RUN loadItems USING useEffect and it only running once. and then after that, change these two useEffect into single one that runs loadItems
-  // useEffect(() => {
-  //   getItem(id);
-  // }, [getItem]);
-
-  // useEffect(() => {
-  //   getRandomItems();
-  // }, [getRandomItems]);
 
   return (
     <>
+      <ItemPageHeader />
+      <ItemBar filterItems={filterItems} />
       {selectedItem ? (
         <div className='itempage container'>
           <div className='itempage__left'>
@@ -91,7 +89,11 @@ const mapStateToProps = state => ({
   randomItems: state.gallery.randomItems
 });
 
-export default connect(mapStateToProps, { getItem, getRandomItems })(ItemPage);
+export default connect(mapStateToProps, {
+  getItem,
+  getRandomItems,
+  filterItems
+})(ItemPage);
 
 // @TODO:
 // 1. have a main container for itempage and then have the { selectedItem ? <></> : null } in there.

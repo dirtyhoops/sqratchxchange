@@ -41,7 +41,7 @@ export const filterItems = type => async dispatch => {
     dispatch({
       type: GET_ITEMS,
       payload:
-        type === 'all products'
+        type === 'all products' || null
           ? res.data
           : res.data.filter(item => item.type === type)
     });
