@@ -7,6 +7,7 @@ import { getItem, getRandomItems, filterItems } from '../../../actions/gallery';
 
 import ItemPageHeader from './ItemPageHeader';
 import ItemBar from './ItemBar';
+import EmailForm from './EmailForm';
 
 const ItemPage = ({
   getItem,
@@ -49,17 +50,23 @@ const ItemPage = ({
 
             {/* THIS IS GOING TO BE THE FORM TO ASK ABOUT THE ITEM, ITS GONNA BE A TOGGLED FORM */}
             <div className='itempage__form'>
-              <form>
-                <label>YOUR EMAIL:</label>
+              {/* <form>
+                <label>your email:</label>
                 <input type='text'></input>
                 <br></br>
-                <label>YOUR QUESTION:</label>
+                <label>inquiry about the item:</label>
                 <input type='textarea'></input>
                 <br></br>
                 <button className='itempage__button'>ask about the item</button>
-              </form>
+              </form> */}
+              <br></br>
+              <br></br>
+              <br></br>
+              <EmailForm />
             </div>
           </div>
+
+          {/* MAKE A NEW COMPONENT FOR THIS */}
           <div className='itempage__moreproducts'>
             <h3 className='heading-secondary'>More Products</h3>
             <div className='itempage__moreproducts__container'>

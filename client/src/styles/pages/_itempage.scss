@@ -5,14 +5,11 @@
   display: flex;
   min-height: 100vh;
   flex-wrap: wrap;
-
-  // remove the margin later, it's just here right now so the navbar wont be in the way and so there's more space after more products
-  padding: 2rem 0 15rem 0;
+  margin-top: 2rem;
 
   &__left {
-    width: 60%;
+    flex: 0 0 60%;
     // height: 80rem;
-    // background: red;
 
     &__image {
       width: 100%;
@@ -43,7 +40,7 @@
   }
 
   &__right {
-    width: 40%;
+    flex: 0 0 40%;
     // height: 80rem;
     padding: 0 2rem;
   }

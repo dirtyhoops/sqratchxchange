@@ -12,6 +12,7 @@
   "author": "Daryll Osis",
   "license": "MIT",
   "dependencies": {
+    "@sendgrid/mail": "^6.5.2",
     "config": "^3.2.4",
     "express": "^4.17.1",
     "express-validator": "^6.3.0",

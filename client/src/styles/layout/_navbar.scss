@@ -16,10 +16,9 @@ nav.black {
   }
 
   &__logo {
-    width: 25%;
-    padding: 0 2rem;
-    text-align: center;
-    height: 5rem;
+    flex: 0 0 25%;
+    padding-left: 2rem;
+    text-align: left;
 
     @include respond(phone) {
       width: 80%;
@@ -54,10 +53,8 @@ nav.black {
 
   &__menu {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: row;
-    flex-flow: wrap;
 
     .showing {
       @include respond(phone) {
@@ -66,7 +63,7 @@ nav.black {
     }
 
     &--right {
-      width: 75%;
+      flex: 0 0 75%;
       text-align: right;
 
       @include respond(phone) {

@@ -1,8 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
+const sgMail = require('@sendgrid/mail');
 
 const Gallery = require('../../models/Gallery');
+
+// Move this to .env file later
+sgMail.setApiKey(
+  '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'
+);
 
 // @route     GET api/gallery
 // @desc      Gallery route
@@ -121,6 +127,24 @@ router.delete('/:id', async (req, res) => {
 
     res.status(500).send('Server Error');
   }
+});
+
+//FOR EMAIL
+router.get('/send-email/:sender/:topic/:text', (req, res) => {
+  // Get variables from query string
+  const { sender, topic, text } = req.params;
+
+  const msg = {
+    to: 'dosis@csumb.edu',
+    from: sender,
+    subject: topic,
+    text: text
+  };
+
+  console.log('yeeeeeeeeeeeee');
+  sgMail.send(msg).then(msg => console.log(text));
+
+  // `http://127.0.0.1:4000/send-email?sender=${sender}&topic=${subject}&text=${emailtext}`
 });
 
 module.exports = router;
