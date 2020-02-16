@@ -5,10 +5,10 @@ const sgMail = require('@sendgrid/mail');
 
 const Gallery = require('../../models/Gallery');
 
+require('dotenv').config();
+
 // Move this to .env file later
-sgMail.setApiKey(
-  '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'
-);
+sgMail.setApiKey(process.env.SEND_GRID_API);
 
 // @route     GET api/gallery
 // @desc      Gallery route

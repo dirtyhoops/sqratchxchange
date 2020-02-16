@@ -1,4 +1,3 @@
 {
-  "mongoURI": "mongodb+srv://deighty27:%40Pogiako27@cluster0-a66ru.mongodb.net/test?retryWrites=true&w=majority",
-  "sendGridAPI": "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"
+  "mongoURI": "mongodb+srv://deighty27:%40Pogiako27@cluster0-a66ru.mongodb.net/test?retryWrites=true&w=majority"
 }
