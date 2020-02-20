@@ -11,9 +11,12 @@ const GallerySchema = new mongoose.Schema({
   type: {
     type: String
   },
+  // image: {
+  //   type: String,
+  //   required: true
+  // },
   image: {
-    type: String,
-    required: true
+    type: [String]
   },
   dateAdded: {
     type: Date,

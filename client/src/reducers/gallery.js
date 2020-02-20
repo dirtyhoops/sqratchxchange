@@ -22,6 +22,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         items: payload,
+        selectedItem: null,
         loadingItems: false
       };
     case GET_RANDOM_ITEMS:

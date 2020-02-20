@@ -63,13 +63,13 @@ const AddItemPage = ({ addingSuccess, addItem, setAlert }) => {
           </div>
           <div className='form__group'>
             <label htmlFor='imagelink'>Image Link</label>
-            <input
+            <textarea
               className='form__control'
               type='text'
               name='imagelink'
               value={imagelink}
               onChange={e => onChange(e)}
-            ></input>
+            ></textarea>
           </div>
           <div className='form__group'>
             <label htmlFor='type'>Item Type</label>

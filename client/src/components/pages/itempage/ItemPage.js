@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -8,6 +8,7 @@ import { getItem, getRandomItems, filterItems } from '../../../actions/gallery';
 import ItemPageHeader from './ItemPageHeader';
 import ItemBar from './ItemBar';
 import EmailForm from './EmailForm';
+import ItemImages from './ItemImages';
 
 const ItemPage = ({
   getItem,
@@ -16,8 +17,7 @@ const ItemPage = ({
   match: {
     params: { id }
   },
-  selectedItem,
-  randomItems
+  gallery: { selectedItem, randomItems }
 }) => {
   const loadItems = id => {
     getItem(id);
@@ -34,14 +34,23 @@ const ItemPage = ({
       <ItemBar filterItems={filterItems} />
       {selectedItem ? (
         <div className='itempage container'>
-          <div className='itempage__left'>
+          {/* <div className='itempage__left'>
             <div className='itempage__left__image'>
-              <img src={selectedItem.image} alt='selected item main image' />
+              <img src={mainImage} alt='selected item main image' />
             </div>
             <div className='itempage__left__smallimages'>
-              <div className='itempage__left__smallimages__box'></div>
+              {selectedItem.image.map((image, index) => (
+                <div
+                  key={index}
+                  className='itempage__left__smallimages__box'
+                  onClick={() => onChangeImage(image)}
+                >
+                  <img src={image} alt='all product images' />
+                </div>
+              ))}
             </div>
-          </div>
+          </div> */}
+          <ItemImages images={selectedItem.image} />
           <div className='itempage__right'>
             <p className='itempage__text__name'>{selectedItem.name}</p>
             <p className='itempage__text__description'>
@@ -49,21 +58,8 @@ const ItemPage = ({
             </p>
 
             {/* THIS IS GOING TO BE THE FORM TO ASK ABOUT THE ITEM, ITS GONNA BE A TOGGLED FORM */}
-            <div className='itempage__form'>
-              {/* <form>
-                <label>your email:</label>
-                <input type='text'></input>
-                <br></br>
-                <label>inquiry about the item:</label>
-                <input type='textarea'></input>
-                <br></br>
-                <button className='itempage__button'>ask about the item</button>
-              </form> */}
-              <br></br>
-              <br></br>
-              <br></br>
-              <EmailForm />
-            </div>
+
+            <EmailForm itemName={selectedItem.name} />
           </div>
 
           {/* MAKE A NEW COMPONENT FOR THIS */}
@@ -91,8 +87,9 @@ const ItemPage = ({
 };
 
 const mapStateToProps = state => ({
-  selectedItem: state.gallery.selectedItem,
-  randomItems: state.gallery.randomItems
+  gallery: state.gallery
+  // selectedItem: state.gallery.selectedItem,
+  // randomItems: state.gallery.randomItems
 });
 
 export default connect(mapStateToProps, {

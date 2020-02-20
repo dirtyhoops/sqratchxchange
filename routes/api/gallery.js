@@ -8,7 +8,7 @@ const Gallery = require('../../models/Gallery');
 require('dotenv').config();
 
 // Move this to .env file later
-sgMail.setApiKey(process.env.SEND_GRID_API);
+sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
 
 // @route     GET api/gallery
 // @desc      Gallery route
@@ -69,7 +69,7 @@ router.post(
         name: req.body.itemname,
         description: req.body.description,
         type: req.body.type,
-        image: req.body.imagelink
+        image: req.body.imagelink.split(',').map(image => image.trim())
       });
 
       // Saves the new item to the DB
@@ -129,22 +129,29 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-//FOR EMAIL
-router.get('/send-email/:sender/:topic/:text', (req, res) => {
-  // Get variables from query string
-  const { sender, topic, text } = req.params;
+// FOR EMAIL
+router.get(
+  '/send-email/:recipient/:sender/:topic/:message',
+  async (req, res) => {
+    // Get variables from query string
+    const { recipient, sender, topic, message } = req.params;
 
-  const msg = {
-    to: 'dosis@csumb.edu',
-    from: sender,
-    subject: topic,
-    text: text
-  };
+    const msg = {
+      to: recipient,
+      from: sender,
+      subject: topic,
+      text: message
+    };
 
-  console.log('yeeeeeeeeeeeee');
-  sgMail.send(msg).then(msg => console.log(text));
+    try {
+      await sgMail.send(msg);
+      console.log('successfully sent the message.. subject: ', msg.subject);
+    } catch (err) {
+      console.log(err.toString());
+    }
 
-  // `http://127.0.0.1:4000/send-email?sender=${sender}&topic=${subject}&text=${emailtext}`
-});
+    // `http://127.0.0.1:4000/send-email?sender=${sender}&topic=${subject}&text=${emailtext}`
+  }
+);
 
 module.exports = router;
