@@ -3,7 +3,8 @@ import {
   GET_RANDOM_ITEMS,
   GET_ITEM,
   ADD_SUCCESS,
-  RESET_LOADINGITEMS
+  RESET_LOADINGITEMS,
+  RESET_SELECTEDITEM
 } from './types';
 
 import { setAlert } from './alert';
@@ -112,5 +113,12 @@ export const addItem = ({
 export const resetLoadingItems = () => async dispatch => {
   dispatch({
     type: RESET_LOADINGITEMS
+  });
+};
+
+// Just to reset itemSelected in the redux
+export const resetSelectedItem = () => async dispatch => {
+  dispatch({
+    type: RESET_SELECTEDITEM
   });
 };

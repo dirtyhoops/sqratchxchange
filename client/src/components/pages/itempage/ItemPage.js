@@ -3,16 +3,23 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { getItem, getRandomItems, filterItems } from '../../../actions/gallery';
+import {
+  getItem,
+  getRandomItems,
+  filterItems,
+  resetSelectedItem
+} from '../../../actions/gallery';
 
 import ItemPageHeader from './ItemPageHeader';
 import ItemBar from './ItemBar';
-import EmailForm from './EmailForm';
 import ItemImages from './ItemImages';
+import ItemInfo from './ItemInfo';
+import MoreProducts from './MoreProducts';
 
 const ItemPage = ({
   getItem,
   getRandomItems,
+  resetSelectedItem,
   filterItems,
   match: {
     params: { id }
@@ -20,6 +27,7 @@ const ItemPage = ({
   gallery: { selectedItem, randomItems }
 }) => {
   const loadItems = id => {
+    resetSelectedItem();
     getItem(id);
     getRandomItems();
   };
@@ -34,52 +42,10 @@ const ItemPage = ({
       <ItemBar filterItems={filterItems} />
       {selectedItem ? (
         <div className='itempage container'>
-          {/* <div className='itempage__left'>
-            <div className='itempage__left__image'>
-              <img src={mainImage} alt='selected item main image' />
-            </div>
-            <div className='itempage__left__smallimages'>
-              {selectedItem.image.map((image, index) => (
-                <div
-                  key={index}
-                  className='itempage__left__smallimages__box'
-                  onClick={() => onChangeImage(image)}
-                >
-                  <img src={image} alt='all product images' />
-                </div>
-              ))}
-            </div>
-          </div> */}
-          <ItemImages images={selectedItem.image} />
-          <div className='itempage__right'>
-            <p className='itempage__text__name'>{selectedItem.name}</p>
-            <p className='itempage__text__description'>
-              Description: {selectedItem.description}
-            </p>
+          <ItemImages selectedItem={selectedItem} />
+          <ItemInfo selectedItem={selectedItem} />
 
-            {/* THIS IS GOING TO BE THE FORM TO ASK ABOUT THE ITEM, ITS GONNA BE A TOGGLED FORM */}
-
-            <EmailForm itemName={selectedItem.name} />
-          </div>
-
-          {/* MAKE A NEW COMPONENT FOR THIS */}
-          <div className='itempage__moreproducts'>
-            <h3 className='heading-secondary'>More Products</h3>
-            <div className='itempage__moreproducts__container'>
-              {randomItems.length > 0
-                ? randomItems.map((randomItem, index) => (
-                    <Link key={index} to={`/gallery/${randomItem._id}`}>
-                      <div
-                        className='itempage__moreproducts__box'
-                        onClick={() => loadItems(`${randomItem._id}`)}
-                      >
-                        <img src={randomItem.image} alt='productsimg' />
-                      </div>
-                    </Link>
-                  ))
-                : null}
-            </div>
-          </div>
+          <MoreProducts randomItems={randomItems} loadItems={loadItems} />
         </div>
       ) : null}
     </>
@@ -95,7 +61,8 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {
   getItem,
   getRandomItems,
-  filterItems
+  filterItems,
+  resetSelectedItem
 })(ItemPage);
 
 // @TODO:

@@ -3,7 +3,8 @@ import {
   GET_RANDOM_ITEMS,
   GET_ITEM,
   ADD_SUCCESS,
-  RESET_LOADINGITEMS
+  RESET_LOADINGITEMS,
+  RESET_SELECTEDITEM
 } from '../actions/types';
 
 const initialState = {
@@ -45,6 +46,12 @@ export default function(state = initialState, action) {
         ...state,
         loadingItems: true
       };
+    case RESET_SELECTEDITEM: {
+      return {
+        ...state,
+        selectedItem: null
+      };
+    }
 
     default:
       return state;
