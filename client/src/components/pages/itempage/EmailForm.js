@@ -24,7 +24,7 @@ const EmailForm = props => {
 
     fetch(
       // `/api/gallery/send-email/${sender}/${subject}/${emailtext}`
-      `/api/gallery/send-email/dosis@csumb.edu/${sender}/${subject}/${message}`
+      `/api/gallery/send-email/dosis@csumb.edu/${sender}/${subject}/${message}/${itemName}`
     ).catch(err => console.log(err));
   };
 

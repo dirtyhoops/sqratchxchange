@@ -11,7 +11,7 @@ require('dotenv').config();
 sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
 
 // @route     GET api/gallery
-// @desc      Gallery route
+// @desc      Get all the items from the gallery
 // @access    Public
 router.get('/', async (req, res) => {
   try {
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 });
 
 // @route     GET api/gallery/random
-// @desc      Gallery route
+// @desc      Get 5 randoms gallery items.
 // @access    Public
 router.get('/random', async (req, res) => {
   try {
@@ -131,16 +131,17 @@ router.delete('/:id', async (req, res) => {
 
 // FOR EMAIL
 router.get(
-  '/send-email/:recipient/:sender/:topic/:message',
+  '/send-email/:recipient/:sender/:topic/:message/:itemname',
   async (req, res) => {
     // Get variables from query string
-    const { recipient, sender, topic, message } = req.params;
+    const { recipient, sender, topic, message, itemname } = req.params;
 
     const msg = {
       to: recipient,
-      from: sender,
+      replyTo: sender,
+      from: 'sqratchxchange@gmail.com',
       subject: topic,
-      text: message
+      html: `<strong> item name: </strong><p>${itemname}</p></br><strong>message: </strong> <p>${message}</p>`
     };
 
     try {
@@ -148,6 +149,7 @@ router.get(
       console.log('successfully sent the message.. subject: ', msg.subject);
     } catch (err) {
       console.log(err.toString());
+      res.status(500).send('Server Error');
     }
 
     // `http://127.0.0.1:4000/send-email?sender=${sender}&topic=${subject}&text=${emailtext}`
