@@ -71,27 +71,15 @@ export const getItem = id => async dispatch => {
   }
 };
 
-export const addItem = ({
-  itemname,
-  description,
-  imagelink,
-  type
-}) => async dispatch => {
+export const addItem = ({ formData }) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json'
     }
   };
 
-  const body = JSON.stringify({
-    itemname,
-    description,
-    imagelink,
-    type
-  });
-
   try {
-    const res = await axios.post('/api/gallery', body, config);
+    const res = await axios.post('/api/gallery', formData, config);
 
     dispatch(setAlert(res.data.msg, 'success'));
 
@@ -121,4 +109,24 @@ export const resetSelectedItem = () => async dispatch => {
   dispatch({
     type: RESET_SELECTEDITEM
   });
+};
+
+// This is for sending the email
+export const sendEmail = ({ emailFormData }) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  try {
+    const res = await axios.post(
+      '/api/gallery/send-email',
+      emailFormData,
+      config
+    );
+  } catch (err) {
+    // Change this to a better error checking later once it's working
+    console.log('cant sent email');
+  }
 };

@@ -1,38 +1,34 @@
 import React, { useState } from 'react';
 
 const EmailForm = props => {
-  const { itemName } = props;
+  const { itemName, sendEmail } = props;
 
   const [emailFormData, setEmailFormData] = useState({
     sender: '',
-    subject: 'inquiry about ' + itemName,
-    message: ''
+    topic: 'inquiry about ' + itemName,
+    message: '',
+    itemname: itemName
   });
 
   const [isMessageSent, setIsMessageSent] = useState(false);
 
-  const { sender, subject, message } = emailFormData;
+  const { sender, topic, message } = emailFormData;
 
   // Just an onChange handler that changes the state of the form with every key stroke
   const onChange = e =>
     setEmailFormData({ ...emailFormData, [e.target.name]: e.target.value });
 
-  const sendEmail = e => {
+  const sendEmailHandler = e => {
     e.preventDefault();
-
     setIsMessageSent(true);
-
-    fetch(
-      // `/api/gallery/send-email/${sender}/${subject}/${emailtext}`
-      `/api/gallery/send-email/dosis@csumb.edu/${sender}/${subject}/${message}/${itemName}`
-    ).catch(err => console.log(err));
+    sendEmail({ emailFormData });
   };
 
   return (
     <div className='itempage__form'>
       {!isMessageSent ? (
         <div className='itempage__form__container'>
-          <form onSubmit={e => sendEmail(e)}>
+          <form onSubmit={e => sendEmailHandler(e)}>
             <div className='itempage__form__group'>
               <label>Email Address:</label>
               <input
@@ -47,8 +43,8 @@ const EmailForm = props => {
               <label>Subject:</label>
               <input
                 type='text'
-                name='subject'
-                value={subject}
+                name='topic'
+                value={topic}
                 onChange={e => onChange(e)}
                 className='itempage__form__input'
               ></input>

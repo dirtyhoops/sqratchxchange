@@ -25,7 +25,7 @@ const AddItemPage = ({ addingSuccess, addItem, setAlert }) => {
     if (admincode !== 'vape3onesx') {
       setAlert('Admin Code is incorrect', 'danger');
     } else {
-      addItem({ itemname, description, imagelink, type });
+      addItem({ formData });
     }
   };
 

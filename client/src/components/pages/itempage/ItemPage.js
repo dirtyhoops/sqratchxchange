@@ -7,7 +7,8 @@ import {
   getItem,
   getRandomItems,
   filterItems,
-  resetSelectedItem
+  resetSelectedItem,
+  sendEmail
 } from '../../../actions/gallery';
 
 import ItemPageHeader from './ItemPageHeader';
@@ -21,6 +22,7 @@ const ItemPage = ({
   getRandomItems,
   resetSelectedItem,
   filterItems,
+  sendEmail,
   match: {
     params: { id }
   },
@@ -43,7 +45,7 @@ const ItemPage = ({
       {selectedItem ? (
         <div className='itempage container'>
           <ItemImages selectedItem={selectedItem} />
-          <ItemInfo selectedItem={selectedItem} />
+          <ItemInfo selectedItem={selectedItem} sendEmail={sendEmail} />
 
           <MoreProducts randomItems={randomItems} loadItems={loadItems} />
         </div>
@@ -54,15 +56,14 @@ const ItemPage = ({
 
 const mapStateToProps = state => ({
   gallery: state.gallery
-  // selectedItem: state.gallery.selectedItem,
-  // randomItems: state.gallery.randomItems
 });
 
 export default connect(mapStateToProps, {
   getItem,
   getRandomItems,
   filterItems,
-  resetSelectedItem
+  resetSelectedItem,
+  sendEmail
 })(ItemPage);
 
 // @TODO:

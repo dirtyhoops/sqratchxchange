@@ -15,7 +15,7 @@ sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
 // @access    Public
 router.get('/', async (req, res) => {
   try {
-    const items = await Gallery.find().sort({ date: -1 });
+    const items = await Gallery.find().sort({ dateAdded: -1 });
 
     res.json(items);
   } catch (err) {
@@ -130,30 +130,26 @@ router.delete('/:id', async (req, res) => {
 });
 
 // FOR EMAIL
-router.get(
-  '/send-email/:recipient/:sender/:topic/:message/:itemname',
-  async (req, res) => {
-    // Get variables from query string
-    const { recipient, sender, topic, message, itemname } = req.params;
+router.post('/send-email', async (req, res) => {
+  // Get variables from query string
+  const { sender, topic, message, itemname } = req.body;
+  console.log(req.body);
 
-    const msg = {
-      to: recipient,
-      replyTo: sender,
-      from: 'sqratchxchange@gmail.com',
-      subject: topic,
-      html: `<strong> item name: </strong><p>${itemname}</p></br><strong>message: </strong> <p>${message}</p>`
-    };
+  const msg = {
+    to: 'sqratchxchange@gmail.com',
+    replyTo: sender,
+    from: 'daryllosis27@gmail.com',
+    subject: topic,
+    html: `<strong> item name: </strong><p>${itemname}</p></br><strong>message: </strong> <p>${message}</p>`
+  };
 
-    try {
-      await sgMail.send(msg);
-      console.log('successfully sent the message.. subject: ', msg.subject);
-    } catch (err) {
-      console.log(err.toString());
-      res.status(500).send('Server Error');
-    }
-
-    // `http://127.0.0.1:4000/send-email?sender=${sender}&topic=${subject}&text=${emailtext}`
+  try {
+    await sgMail.send(msg);
+    console.log('successfully sent the message.. subject: ', msg.subject);
+  } catch (err) {
+    console.log(err.toString());
+    res.status(500).send('Server Error');
   }
-);
+});
 
 module.exports = router;
