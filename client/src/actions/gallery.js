@@ -126,7 +126,7 @@ export const sendEmail = ({ emailFormData }) => async dispatch => {
       config
     );
   } catch (err) {
-    // Change this to a better error checking later once it's working
+    // change this later
     console.log('cant sent email');
   }
 };

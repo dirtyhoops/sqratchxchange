@@ -21,6 +21,7 @@
   &__input {
     width: 100%;
     padding: 1rem;
+    font-size: 1.5rem;
   }
 
   &__textarea {
@@ -28,5 +29,39 @@
     padding: 1rem;
     height: 15rem;
     resize: none;
+    font-size: 1.5rem;
+  }
+
+  @include respond(tab-portrait) {
+  }
+
+  @include respond(phone) {
+    margin: 4rem 0;
+
+    &__group {
+      margin: 2rem 0;
+    }
+
+    &__button {
+      margin-top: 1rem;
+      padding: 1.5rem;
+      width: 100%;
+    }
+
+    & label {
+      font-size: 2rem;
+    }
+
+    &__input {
+      font-size: 2rem;
+    }
+
+    &__textarea {
+      font-size: 2rem;
+      height: 17rem;
+    }
+  }
+
+  @include respond(small-phone) {
   }
 }

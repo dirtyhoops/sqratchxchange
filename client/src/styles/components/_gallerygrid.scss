@@ -72,8 +72,6 @@
 
 .col {
   width: calc((100% - 3 *#{$gutter-horizontal}) / 4);
-  // background-color: red;
-  // height: 10rem;
   margin-bottom: $gutter-vertical;
   margin-right: $gutter-horizontal;
 
@@ -82,4 +80,15 @@
   }
 
   // Tab-portrait -- 3 items, phone --- 2 items, small-phone ---- 3 items.
+  // TRY TO FIND A FIX WHERE IT ONLY TRIGGERS THE NTH CHILD DEPENDING ON THE SIZE OF THE SCREEN
+
+  @include respond(phone) {
+    width: calc((100% - 2 *#{$gutter-horizontal}) / 3);
+    margin-bottom: $gutter-vertical;
+    margin-right: $gutter-horizontal;
+
+    &:nth-child(3n) {
+      margin-right: 0rem;
+    }
+  }
 }

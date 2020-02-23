@@ -46,12 +46,26 @@
         }
       }
     }
+
+    @include respond(phone) {
+      flex: 0 0 100%;
+      padding: 0 1rem;
+      &__image {
+        height: 65rem;
+        text-align: center;
+      }
+    }
   }
 
   &__right {
     flex: 0 0 40%;
     // height: 80rem;
     padding: 0 2rem;
+
+    @include respond(phone) {
+      flex: 0 0 100%;
+      padding: 3rem 1rem;
+    }
   }
 
   &__text {
@@ -59,12 +73,23 @@
       font-size: 2.2rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      // text-align: center;
       font-weight: bold;
     }
 
     &__description {
       font-size: 1.5rem;
+    }
+
+    @include respond(phone) {
+      &__name {
+        font-size: 3.2rem;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      &__description {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -74,7 +99,7 @@
 
     &__container {
       width: 100%;
-      margin: 2rem 0;
+      margin: 1rem 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -84,7 +109,18 @@
       width: 22rem; // Add a minimum width later once you're working on the responsiveness
       height: 22rem;
       padding: 0.5rem;
+      margin-top: 1.3rem;
       border: 4px double $color-light-greyish;
+
+      @include respond(tab-portrait) {
+        width: 20rem;
+        height: 20rem;
+      }
+
+      @include respond(small-phone) {
+        width: 24rem;
+        height: 24rem;
+      }
 
       & img {
         width: 100%;

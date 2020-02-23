@@ -133,10 +133,9 @@ router.delete('/:id', async (req, res) => {
 router.post('/send-email', async (req, res) => {
   // Get variables from query string
   const { sender, topic, message, itemname } = req.body;
-  console.log(req.body);
 
   const msg = {
-    to: 'sqratchxchange@gmail.com',
+    to: ' .com',
     replyTo: sender,
     from: 'daryllosis27@gmail.com',
     subject: topic,
@@ -145,7 +144,7 @@ router.post('/send-email', async (req, res) => {
 
   try {
     await sgMail.send(msg);
-    console.log('successfully sent the message.. subject: ', msg.subject);
+    res.send('successfully sent the email');
   } catch (err) {
     console.log(err.toString());
     res.status(500).send('Server Error');

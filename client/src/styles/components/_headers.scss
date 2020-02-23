@@ -82,6 +82,10 @@
   background-size: cover;
   margin-bottom: 2rem;
 
+  // @include respond(phone) {
+  //   display: none;
+  // }
+
   &--gallery {
     background-image: linear-gradient(
         to bottom,
