@@ -1,18 +1,15 @@
 .section-about {
-  min-height: 50rem;
-  padding: 20rem 0;
-  background-color: $color-white;
-
-  // -webkit-clip-path: ellipse(110% 52% at 50% 45%);
-  // clip-path: ellipse(110% 52% at 50% 45%);
+  padding: 25rem 0;
+  background-color: $color-2;
+  min-height: 50vh;
 }
 
-.section-offer {
-  min-height: 60rem;
-  background-color: $color-home-background;
-  position: relative;
-}
+// .section-offer {
+//   min-height: 60rem;
+//   background-color: $color-home-background;
+//   position: relative;
+// }
 
 .section-location {
-  background-color: white;
+  background-color: $color-3-light;
 }

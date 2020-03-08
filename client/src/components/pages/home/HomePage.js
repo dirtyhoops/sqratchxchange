@@ -11,7 +11,7 @@ const Home = () => {
     <div>
       <HeaderImage />
       <About />
-      <Offer />
+      {/* <Offer /> */}
       <Location />
     </div>
   );

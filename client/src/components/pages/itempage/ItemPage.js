@@ -39,7 +39,7 @@ const ItemPage = ({
   }, []);
 
   return (
-    <>
+    <div className='wrapper-itempage'>
       <ItemPageHeader />
       <ItemBar filterItems={filterItems} />
       {selectedItem ? (
@@ -50,7 +50,7 @@ const ItemPage = ({
           <MoreProducts randomItems={randomItems} loadItems={loadItems} />
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
 

@@ -15,110 +15,68 @@ nav.black {
     background-color: $color-black;
   }
 
-  &__logo {
-    flex: 0 0 25%;
-    padding-left: 2rem;
-    text-align: left;
-
-    @include respond(phone) {
-      width: 80%;
-      height: 6rem;
-      text-align: left;
-      font-size: 3.5rem;
-    }
-
-    &__image {
-      width: 10rem;
-
-      @include respond(phone) {
-        width: 12rem;
-      }
-    }
-  }
-
-  &__menuicon {
-    width: 15%;
-    text-align: right;
-    box-sizing: border-box;
-    padding: 1.4rem 3rem;
-    cursor: pointer;
-    color: #fff;
-    display: none;
-
-    @include respond(phone) {
-      display: block;
-      font-size: 2rem;
-    }
-  }
-
   &__menu {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
-    .showing {
+    // The logo
+    &__logo {
+      flex: 0 0 25%;
+      padding-left: 4rem;
+      text-align: left;
+
       @include respond(phone) {
-        max-height: 70vh;
+        flex: 0 0 30%;
+        height: 6rem;
+        font-size: 3.5rem;
+      }
+
+      &__image {
+        width: 10rem;
+
+        @include respond(phone) {
+          width: 12rem;
+        }
       }
     }
 
-    &--right {
+    // All the links in the navigation bar
+    &__links {
       flex: 0 0 75%;
       text-align: right;
+      padding-right: 2rem;
 
+      ul {
+        list-style: none;
+        overflow: hidden;
+        color: $color-white;
+        padding: 0;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          padding: 1rem 2rem;
+          cursor: pointer;
+        }
+
+        .nav__links,
+        a {
+          text-decoration: none;
+          color: $color-white;
+          font-size: 1.4rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+
+          @include respond(phone) {
+            font-size: 2rem;
+          }
+        }
+      }
       @include respond(phone) {
         width: 100%;
       }
     }
-
-    ul {
-      list-style: none;
-      overflow: hidden;
-      color: $color-white;
-      padding: 0;
-      margin: 0;
-
-      @include respond(phone) {
-        max-height: 0px;
-        text-align: center;
-        transition: all 0.5s;
-      }
-
-      li {
-        display: inline-block;
-        padding: 1rem 1.8rem;
-        cursor: pointer;
-
-        @include respond(phone) {
-          box-sizing: border-box;
-          width: 100%;
-          margin-bottom: 4rem;
-        }
-      }
-
-      .nav__links,
-      a {
-        text-decoration: none;
-        color: $color-white;
-        font-size: 1.4rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-
-        @include respond(phone) {
-          font-size: 2rem;
-        }
-      }
-    }
-  }
-
-  @include respond(phone) {
-    &__menu :nth-child(1) {
-      order: 1;
-    }
   }
 }
-
-// @todo:
-// 1. make sure that the logo is in the middle
-// 2. change the font of the logo

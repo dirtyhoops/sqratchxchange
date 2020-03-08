@@ -14,11 +14,30 @@
       cursor: pointer;
       letter-spacing: 1px;
       text-transform: capitalize;
-      transition: all 0.2s;
+      position: relative;
+      padding-bottom: 5px;
+      transition: all 0.5s; // this for the bold of the <li>
+
+      &::after {
+        content: '.';
+        height: 1px;
+        width: 0%;
+        color: transparent;
+        background-color: $color-4;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: all 0.5s;
+        margin: auto;
+      }
 
       &:hover {
-        font-weight: bold;
-        font-size: 1.6rem;
+        color: $color-4;
+      }
+
+      &:hover::after {
+        width: 100%;
       }
     }
 
@@ -27,4 +46,9 @@
       color: $color-black;
     }
   }
+}
+
+.filterSelected {
+  color: $color-4;
+  font-weight: bold;
 }

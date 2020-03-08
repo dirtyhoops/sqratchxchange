@@ -36,7 +36,6 @@ const GalleryPage = ({
 
 const mapStateToProps = state => ({
   gallery: state.gallery
-  // items: state.gallery.items
 });
 
 export default connect(mapStateToProps, {

@@ -1,5 +1,10 @@
 // Do all the styling here right now, and then just divide it up later
 
+//The wrapper for the whole item page
+.wrapper-itempage {
+  background-color: $color-2;
+}
+
 .itempage {
   width: 100%;
   display: flex;
@@ -16,7 +21,8 @@
       height: 65rem;
       text-align: right;
       margin: 0 auto;
-      border: 4px double $color-light-greyish;
+      border: 4px double $color-1;
+      background-color: $color-white;
 
       & img {
         width: 100%;
@@ -36,7 +42,8 @@
         width: 14rem;
         height: 14rem;
         margin-right: 1rem;
-        border: 1px solid $color-light-greyish;
+        border: 1px solid $color-1;
+        background-color: $color-white;
         cursor: pointer;
 
         & img {
@@ -110,7 +117,8 @@
       height: 22rem;
       padding: 0.5rem;
       margin-top: 1.3rem;
-      border: 4px double $color-light-greyish;
+      border: 4px double $color-1;
+      background-color: $color-white;
 
       @include respond(tab-portrait) {
         width: 20rem;

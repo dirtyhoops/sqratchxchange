@@ -41,12 +41,20 @@ body {
 
 // Typography for the page headers
 .header-text {
-  color: $color-white;
+  color: $color-3-light;
   font-size: 7rem;
   text-transform: capitalize;
   letter-spacing: 1rem;
   font-family: 'Permanent Marker', cursive;
   @include absCenter;
+
+  @include respond(phone) {
+    font-size: 6rem;
+  }
+
+  @include respond(small-phone) {
+    font-size: 4.5rem;
+  }
 }
 
 // //have 2 types with 2 different font color

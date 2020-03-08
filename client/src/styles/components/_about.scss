@@ -2,6 +2,7 @@
   &__container {
     display: flex;
     height: 40rem;
+    flex-wrap: wrap;
 
     &--left {
       flex: 0 0 45%;
@@ -14,6 +15,22 @@
       text-align: left;
       padding: 1rem;
       position: relative;
+    }
+
+    @include respond(phone) {
+      height: 70rem;
+
+      &--left {
+        flex: 0 0 100%;
+        padding: 1rem;
+        order: 1;
+      }
+
+      &--right {
+        flex: 0 0 100%;
+        text-align: center;
+        padding: 0rem 5rem;
+      }
     }
   }
 

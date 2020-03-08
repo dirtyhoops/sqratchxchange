@@ -28,16 +28,16 @@ const Navbar = ({ resetLoadingItems }) => {
   return (
     <nav className={scrolled ? 'nav black' : 'nav'}>
       <div className='nav__menu container'>
-        <div className='nav__logo' id='nav-link-logo'>
+        <div className='nav__menu__logo' id='nav-link-logo'>
           <Link to={'/'} onClick={() => resetLoadingItems()}>
             <img
-              className='nav__logo__image'
+              className='nav__menu__logo__image'
               src={Logo}
               alt='sqratch xchange logo'
             />
           </Link>
         </div>
-        <div className='nav__menu--right'>
+        <div className='nav__menu__links'>
           <ul>
             <li className='nav__links'>
               <Link to={'/'} onClick={() => resetLoadingItems()}>
@@ -46,7 +46,7 @@ const Navbar = ({ resetLoadingItems }) => {
             </li>
 
             {/* <Link to={'/about'}> */}
-            <li className='nav__links'>About</li>
+            {/* <li className='nav__links'>About</li> */}
             {/* </Link> */}
 
             <li className='nav__links'>
@@ -54,34 +54,9 @@ const Navbar = ({ resetLoadingItems }) => {
             </li>
 
             {/* <Link to={'/location'}> */}
-            <li className='nav__links'>Location</li>
+            {/* <li className='nav__links'>Location</li> */}
             {/* </Link> */}
-
-            {/* <li>
-              <a className='nav__links' id='nav-link-home' href='/'>
-                Home
-              </a>
-            </li>
-            <li>
-              <a className='nav__links' id='nav-link-about'>
-                About
-              </a>
-            </li>
-            <li>
-              <a className='nav__links' id='nav-link-gallery' href='/gallery'>
-                Gallery
-              </a>
-            </li>
-            <li>
-              <a className='nav__links' id='nav-link-location'>
-                Location
-              </a>
-            </li> */}
           </ul>
-        </div>
-
-        <div className='nav__menuicon'>
-          <i className='fa fa-bars fa-2x'></i>
         </div>
       </div>
     </nav>
